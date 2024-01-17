@@ -1,25 +1,25 @@
 # citrix-powershell
-unofficial PowerShell modules for Citrix Cloud DaaS.
-It works for Azure connected DaaS only.
+Citrix Cloud DaaS の非公式な PowerShell モジュールです。
+Azure に接続された DaaS にのみ対応しています。
 
-For Japanese, see [README-ja.md](README-ja.md).
+For English, see [README.md](README.md).
 
-# How to use
+# 使い方
 
-## Create an API client
+## API クライアントを作成する
 
-To use the cmdlets, you need to create an API client in Citrix Cloud.
+この cmdlet を使うためには、Citrix Cloud で API クライアントを作成する必要があります。
 
 https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
 
-## Place the module files in the module path
+## モジュールをモジュールパスに配置する
 
-Copy `Citrix` folder to `$HOME\Documents\PowerShell\Modules` folder.
-That might be `C:\Users\xxxxxxxx\OneDrive - xxxxxxxx\Documents\PowerShell\Modules` folder if you're using OneDrive for Business.
+`Citrix` フォルダーを `$HOME\Documents\PowerShell\Modules` フォルダーにコピーします。
+OneDrive for Business を使っている場合、フォルダーの場所は `C:\Users\xxxxxxxx\OneDrive - xxxxxxxx\Documents\PowerShell\Modules` になるかもしれません。
 
-I don't intend to publish this module to PowerShell Gallery, because it's unofficial.
+わたしはこのモジュールを PowerShell Gallery に公開するつもりはありません。非公式なので。
 
-## Define environment variables
+## 環境変数を定義する
 
 ```powershell
 $Env:CUSTOMER_ID = "xxxxxxxx"
@@ -27,65 +27,65 @@ $Env:CLIENT_ID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 $Env:CLIENT_SECRET = "xxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 
-## Run cmdlets
+## cmdlet を実行する
 
-Then, you can run cmdlets.
-The access token for Citrix Cloud API is implicitly acquired by the cmdlets, so you don't need to care about it.
-Not all the cmdlets are implemented, and documented here.
+これで、cmdlet を実行できるようになります。
+Citrix Cloud API に使うアクセス トークンは cmdlet によって暗黙的に取得されるので、気にする必要はありません。
+すべての cmdlet が実装されているわけではなく、また、ここでドキュメント化されているわけでもありません。
 
-### cmdlets for machines
+### マシンに関する cmdlet
 
-- Get machine info.
+- マシンに関する情報を取得
 
     ```powershell
     $MachineName = "Ops2Machine-0001"
     Get-CitrixMachine -MachineName "${MachineName}.example.local"
     ```
-- Get session info on a machine
+- マシン上のセッションに関する情報を取得
 
     ```powershell
     $MachineName = "Ops2Machine-0001"
     Get-CitrixMachineSession -MachineName "${MachineName}.example.local"
     ```
 
-### cmdlets for delivery groups
+### デリバリーグループに関する cmdlet
 
-- Get delivery group list
+- デリバリーグループの一覧を取得
 
     ```powershell
     Get-CitrixDeliveryGroups
     ```
 
-### cmdlets for machine catalogs
+### マシンカタログに関する cmdlet
 
-- Get machine catalog list
+- マシンカタログの一覧を取得
 
     ```powershell
     Get-CitrixMachineCatalogs
     ```
 
-- Get a machine catalog info
+- マシンカタログの情報を取得
 
     ```powershell
     $CatalogName = "CVAD_APIs_MCS_Catalog"
     Get-CitrixMachineCatalog -CatalogName $CatalogName
     ```
 
-- Get machines in a machine catalog
+- マシンカタログに含まれるマシンの一覧を取得
 
     ```powershell
     $CatalogName = "CVAD_APIs_MCS_Catalog"
     Get-CitrixMachineCatalogMachines -CatalogName $CatalogName
     ```
 
-### combination of cmdlets
+### cmdlet の組み合わせ
 
-- Move a specified virtual machine to a different delivery group in a different machine catalog
+- 仮想マシンを別のマシンカタログの別のデリバリーグループに移動する
 
-    `.example.local` is the domain suffix of the virtual machine.
-    `ORCHPERFS2` is the NetBIOS domain name of the virtual machine.
-    `RG-CITRIX-DAAS` is the resource group name of the virtual machine.
-    `Citrix-Connect` is the name of the hypervisor connection.
+    `.example.local` は仮想マシンのドメインサフィックスです。
+    `ORCHPERFS2` は仮想マシンの NetBIOS ドメイン名です。
+    `RG-CITRIX-DAAS` は仮想マシンのリソース グループ名です。
+    `Citrix-Connect` はハイパーバイザー接続の名前です。
 
     ```powershell
     # Define variables
