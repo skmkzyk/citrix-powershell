@@ -32,6 +32,7 @@ $Env:CLIENT_SECRET = "xxxxxxxxxxxxxxxxxxxxxxxx"
 Then, you can run cmdlets.
 The access token for Citrix Cloud API is implicitly acquired by the cmdlets, so you don't need to care about it.
 Not all the cmdlets are implemented, and documented here.
+To list all the cmdlets, run `Get-Command -Module Citrix`.
 
 ### cmdlets for machines
 

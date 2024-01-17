@@ -17,7 +17,7 @@ https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/g
 `Citrix` フォルダーを `$HOME\Documents\PowerShell\Modules` フォルダーにコピーします。
 OneDrive for Business を使っている場合、フォルダーの場所は `C:\Users\xxxxxxxx\OneDrive - xxxxxxxx\Documents\PowerShell\Modules` になるかもしれません。
 
-わたしはこのモジュールを PowerShell Gallery に公開するつもりはありません。非公式なので。
+このモジュールは PowerShell Gallery に公開するつもりはありません、、非公式なので。。。
 
 ## 環境変数を定義する
 
@@ -32,6 +32,7 @@ $Env:CLIENT_SECRET = "xxxxxxxxxxxxxxxxxxxxxxxx"
 これで、cmdlet を実行できるようになります。
 Citrix Cloud API に使うアクセス トークンは cmdlet によって暗黙的に取得されるので、気にする必要はありません。
 すべての cmdlet が実装されているわけではなく、また、ここでドキュメント化されているわけでもありません。
+`Get-Command -Module Citrix` を実行すると、利用可能な cmdlet を確認できます。
 
 ### マシンに関する cmdlet
 
