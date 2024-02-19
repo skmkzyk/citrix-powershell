@@ -131,6 +131,28 @@ function Get-CitrixMachine {
     return $response
 }
 
+function Start-CitrixMachine {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$MachineName
+    )
+
+    $response = Invoke-CitrixRestMethod -PartUrl "Machines/$MachineName/`$Start" -Method "Post"
+
+    return $response
+}
+
+function Stop-CitrixMachine {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$MachineName
+    )
+
+    $response = Invoke-CitrixRestMethod -PartUrl "Machines/$MachineName/`$Shutdown" -Method "Post"
+
+    return $response
+}
+
 function Update-CitrixMachineCatalogMachine {
     param (
         [Parameter(Mandatory = $true)]
@@ -318,6 +340,8 @@ $functionsToExport = @(
     'Get-CitrixHypervisors',
     'Get-CitrixHypervisorMachineCatalogs',
     'Get-CitrixMachine',
+    'Start-CitrixMachine',
+    'Stop-CitrixMachine',
     'Update-CitrixMachineCatalogMachine',
     'Get-CitrixMachineSession',
     'Get-CitrixMachineCatalogs',
